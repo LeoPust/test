@@ -23,6 +23,7 @@ gulp.task('js:comp', function() {
         './node_modules/angular-sanitize/angular-sanitize.min.js',
         './node_modules/angular-touch/angular-touch.min.js',
         './node_modules/angular-ui-router/release/angular-ui-router.min.js',
+        './static/app/**/*.module.js',
         './static/app/**/*.js',
         '!./assets/js/vendor/**/*.js'
     ])
@@ -31,5 +32,5 @@ gulp.task('js:comp', function() {
 });
 
 gulp.task('js:watch', function () {
-    gulp.watch('./static/js/**/*.js', ['js:comp']);
+    gulp.watch('./static/app/**/*.js', ['js:comp']);
 });
