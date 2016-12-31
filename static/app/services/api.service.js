@@ -2,36 +2,61 @@
     "use strict";
     angular
         .module("App")
-        .service("ApiService",ApiService);
+        .service("apiService",apiService);
 
-    ApiService.$inject = ['$http','$log','URLs'];
+    apiService.$inject = ['$http','$log','$cookies','URLs'];
 
-    function ApiService($http,$log,URLs){
+    function apiService($http,$log,$cookies,URLs){
 
 
         var service = {
             getProfile:getProfile,
             checkSession:checkSession,
             signUp:signUp,
-            resultSucced:resultSucced,
+            resultSucceed:resultSucceed,
             XHRFailed:XHRFailed
         };
         return service;
 
-        function getProfile(){}
+        function getProfile(){
+            var vm = this,
+                url = URLs.IP + URLs.PORT + URLs.PATH;
 
-        function checkSession(){}
+            return $http({
+                url:url + "/account",
+                method:"GET",
+                params:{session:$cookies.get("session")},
+                paramSerializer: '$httpParamSerializerJQLike'
+            })
+                .then(vm.resultSucceed)
+                .catch(vm.XHRFailed);
+        }
+
+        function checkSession(){
+            var vm = this,
+                url = URLs.IP + URLs.PORT + URLs.PATH;
+
+            return $http({
+                url:url + "/session",
+                method:"GET",
+                params:{session:$cookies.get("session")},
+                paramSerializer: '$httpParamSerializerJQLike'
+            })
+                .then(vm.resultSucceed)
+                .catch(vm.XHRFailed);
+        }
 
         function signUp(){
             var vm = this,
                 url = URLs.IP + URLs.PORT + URLs.PATH;
             
-            return $http.post(url + "/")
-                .then(vm.resultSucced)
+            return $http.post(url + "/signup")
+                .then(vm.resultSucceed)
                 .catch(vm.XHRFailed);
         }
 
-        function resultSucced(response){
+        function resultSucceed(response){
+            console.log(response.data);
             return response.data;
         }
 

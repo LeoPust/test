@@ -4,22 +4,33 @@
         .module("App")
         .run(Run);
 
-    Run.$inject = ['$cookies','$http','ApiService'];
+    Run.$inject = ['$cookies','$http','apiService','profileService','homeService'];
 
-    function Run($cookies,$http,ApiService){
-        var token = $cookies.get("token");
+    function Run($cookies,$http,apiService,profileService,homeService){
+        var session = $cookies.get("session");
 
         $http.defaults.headers.post = {'Content-Type':'application/json'};
 
-        if(token){
-            // проверка и получение профиля
-            ApiService.checkSession()
-                .then(ApiService.getProfile)
-                .then();
+        if(session){
+            apiService.checkSession()
+                .then(function(data){
+                    if(data.session)$cookies.put("session",data.session);
+                    return apiService.getProfile();
+                })
+                .then(function(data){
+                    profileService.setProfile(data);
+                    homeService.window.show;
+                });
         }else{
-            // создание нового пользователя
-            ApiService.signUp()
-                .then();
+            apiService.signUp()
+                .then(function(data){
+                    $cookies.put("session",data.session);
+                    return apiService.getProfile();
+                })
+                .then(function(data){
+                    profileService.setProfile(data);
+                    homeService.window.show;
+                });
         }
     }
 

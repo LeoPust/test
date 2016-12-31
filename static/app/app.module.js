@@ -1,5 +1,14 @@
 (function(){
     "use strict";
     angular
-        .module("App",['ngRoute','ngResource','ngAnimate','ngSanitize','ngTouch','ngAria','ui.router','ngCookies']);
+        .module("App",[
+            'ngRoute',
+            'ngResource',
+            'ngAnimate',
+            'ngSanitize',
+            'ngTouch',
+            'ngAria',
+            'ui.router',
+            'ngCookies'
+        ]);
 })();

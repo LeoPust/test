@@ -3,7 +3,7 @@
     angular
         .module("App")
         .constant('URLs',{
-            IP:"",
+            IP:"https://api-test-task.decodeapps.io",
             PORT:"",
             PATH:""
         });
