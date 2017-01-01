@@ -13,6 +13,7 @@
             getProfile:getProfile,
             checkSession:checkSession,
             signUp:signUp,
+            getProjects:getProjects,
             resultSucceed:resultSucceed,
             XHRFailed:XHRFailed
         };
@@ -20,10 +21,10 @@
 
         function getProfile(){
             var vm = this,
-                url = URLs.IP + URLs.PORT + URLs.PATH;
+                url = URLs.IP + URLs.PORT + URLs.PATH + "/account";
 
             return $http({
-                url:url + "/account",
+                url:url,
                 method:"GET",
                 params:{session:$cookies.get("session")},
                 paramSerializer: '$httpParamSerializerJQLike'
@@ -34,10 +35,10 @@
 
         function checkSession(){
             var vm = this,
-                url = URLs.IP + URLs.PORT + URLs.PATH;
+                url = URLs.IP + URLs.PORT + URLs.PATH + "/session";
 
             return $http({
-                url:url + "/session",
+                url:url,
                 method:"GET",
                 params:{session:$cookies.get("session")},
                 paramSerializer: '$httpParamSerializerJQLike'
@@ -48,15 +49,28 @@
 
         function signUp(){
             var vm = this,
-                url = URLs.IP + URLs.PORT + URLs.PATH;
+                url = URLs.IP + URLs.PORT + URLs.PATH  + "/signup";
             
-            return $http.post(url + "/signup")
+            return $http.post(url)
+                .then(vm.resultSucceed)
+                .catch(vm.XHRFailed);
+        }
+
+        function getProjects(){
+            var vm = this,
+                url = URLs.IP + URLs.PORT + URLs.PATH + '/projects';
+
+            return $http({
+                    url:url,
+                    method:"GET",
+                    params:{session:$cookies.get("session")},
+                    paramSerializer: '$httpParamSerializerJQLike'
+                })
                 .then(vm.resultSucceed)
                 .catch(vm.XHRFailed);
         }
 
         function resultSucceed(response){
-            console.log(response.data);
             return response.data;
         }
 
