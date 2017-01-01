@@ -4,9 +4,9 @@
         .module("App")
         .run(Run);
 
-    Run.$inject = ['$cookies','$http','apiService','profileService','homeService'];
+    Run.$inject = ['$cookies','$http','apiService','sideBarService','homeService'];
 
-    function Run($cookies,$http,apiService,profileService,homeService){
+    function Run($cookies,$http,apiService,sideBarService,homeService){
         var session = $cookies.get("session");
 
         $http.defaults.headers.post = {'Content-Type':'application/json'};
@@ -18,8 +18,8 @@
                     return apiService.getProfile();
                 })
                 .then(function(data){
-                    profileService.setProfile(data);
-                    homeService.window.show;
+                    sideBarService.setProfile(data);
+                    //homeService.window.show;
                 });
         }else{
             apiService.signUp()
@@ -28,8 +28,8 @@
                     return apiService.getProfile();
                 })
                 .then(function(data){
-                    profileService.setProfile(data);
-                    homeService.window.show;
+                    sideBarService.setProfile(data);
+                    //homeService.window.show;
                 });
         }
     }

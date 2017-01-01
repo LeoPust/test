@@ -8,6 +8,7 @@
 
     function Config($locationProvider,$urlRouterProvider,$stateProvider){
         $locationProvider.html5Mode(true);
+        $urlRouterProvider.otherwise('/404');
         $stateProvider
             .state('home',{
                 url:"/",

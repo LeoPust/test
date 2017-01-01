@@ -2,9 +2,9 @@
     "use strict";
     angular
         .module("App")
-        .service("profileService",profileService);
+        .service("sideBarService",sideBarService);
 
-    function profileService(){
+    function sideBarService(){
         var profile = {
             username:"",
             image_url:""

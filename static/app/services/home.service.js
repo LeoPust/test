@@ -13,10 +13,15 @@
             get hide(){
                 this.status = '';
             }
-        };
+        },
+            template = {
+                sideBar:"template/components/sidebar.component.html",
+                taskBar:"template/components/taskbar.component.html"
+            };
 
         var service = {
-            window:window
+            window:window,
+            template:template
         };
         return service;
     }

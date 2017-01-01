@@ -1,3 +1,6 @@
-<div id="container" ng-class="vm.window.status"></div>
-<h1>Home</h1>
-<ui-view></ui-view>
+<div id="container" ng-class="vm.window.status">
+    <h1>Home</h1>
+    <div class="container__sidebar" ng-include="vm.service.template.sideBar"></div>
+    <div class="container__taskbar" ng-include="vm.service.template.taskBar"></div>
+    <ui-view></ui-view>
+</div>

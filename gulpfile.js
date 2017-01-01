@@ -24,6 +24,7 @@ gulp.task('js:comp', function() {
         './node_modules/angular-touch/angular-touch.min.js',
         './node_modules/angular-ui-router/release/angular-ui-router.min.js',
         './node_modules/angular-cookies/angular-cookies.min.js',
+        './node_modules/angular-material/angular-material.js',
         './static/app/**/*.module.js',
         './static/app/**/*.js',
         '!./assets/js/vendor/**/*.js'

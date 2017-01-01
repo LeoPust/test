@@ -9,6 +9,7 @@
             'ngTouch',
             'ngAria',
             'ui.router',
-            'ngCookies'
+            'ngCookies',
+            'ngMaterial'
         ]);
 })();

@@ -4,11 +4,13 @@
         .module("App")
         .controller("HomeController",HomeController);
 
-    HomeController.$inject = ['homeService','profileService'];
+    HomeController.$inject = ['homeService','sideBarService','taskBarService'];
 
-    function HomeController(homeService,profileService){
+    function HomeController(homeService,sideBarService,taskBarService){
         var vm = this;
 
-        vm.window = homeService.window;
+        vm.service = homeService;
+        vm.sidebar = sideBarService;
+        vm.task = taskBarService;
     }
 })();
