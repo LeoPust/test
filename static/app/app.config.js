@@ -16,5 +16,21 @@
                 controller:"HomeController",
                 controllerAs:"vm"
             })
+            .state("home.create-project",{
+                url:"project/create",
+                templateUrl:"template/modals/project.modal.html",
+                controller:"ModalsController",
+                controllerAs:"vm"
+            })
+            .state("home.create-task",{
+                templateUrl:"template/modals/task-create.modal.html",
+                controller:"ModalsController",
+                controllerAs:"vm"
+            })
+            .state("home.create-viewing",{
+                templateUrl:"template/modals/task-viewing.modal.html",
+                controller:"ModalsController",
+                controllerAs:"vm"
+            })
     }
 })();
