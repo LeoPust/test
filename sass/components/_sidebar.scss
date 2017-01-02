@@ -17,7 +17,7 @@
       float:left;
       width: 54px;
       height: 54px;
-      margin-left:19px;
+      margin-left:7px;
       border-radius: 100px;
       border:2px solid rgb(255,255,255);
       @include flexbox();
@@ -49,6 +49,58 @@
   .projects{
     float:left;
     width: 254px;
+    height: auto;
     margin:0 27px;
+
+    &__title{
+      float:left;
+      width: 100%;
+      height: 45px;
+      padding: 0 12px;
+      box-sizing: border-box;
+
+      p{
+        width: auto;
+        float:left;
+        line-height: 45px;
+        margin:0 0 2px 0;
+        font-size:11px;
+        color:rgb(179,187,203);
+        font-family: SFUIText-Semibold;
+        text-transform: capitalize;
+      }
+    }
+
+    &__project{
+      float:left;
+      width: 100%;
+      height: 35px;
+      padding: 0 12px;
+      box-sizing: border-box;
+      cursor:pointer;
+      border-radius: 5px;
+
+      &:hover{
+        background:rgb(107,107,153);
+      }
+
+      p{
+        color:rgb(255,255,255);
+        font-family: SFUIText-Semibold;
+        font-size: 14px;
+        margin:0 0 0 2px;
+        text-transform: capitalize;
+        width: auto;
+        line-height:35px;
+
+        &:first-of-type{
+          float:left;
+        }
+
+        &:last-of-type{
+          float:right;
+        }
+      }
+    }
   }
 }
