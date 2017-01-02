@@ -1,10 +1,21 @@
 @font-face {
-  font-family: SFUIText-Medium;
-  src:  url(./fonts/SFUIText-Medium.eot?) format('eot'),
-        url(./fonts/SFUIText-Medium.otf) format('otf'),
+  font-family: SFUITextMedium;
+  src:  url(./fonts/SFUIText-Medium.otf?) format('otf'),
+        url(./fonts/SFUIText-Medium.eot) format('eot'),
         url(./fonts/SFUIText-Medium.ttf) format('truetype'),
         url(./fonts/SFUIText-Medium.woff) format('woff'),
-        url(./fonts/SFUIText-Medium.svg#SFUIText-Medium) format('svg');
+        url(./fonts/SFUIText-Medium.svg#SFUITextMedium) format('svg');
+}
+
+@font-face {
+  font-family: 'sf_ui__textmedium';
+  src: url('./fonts/sfuitext-medium-webfont.woff2') format('woff2'),
+  url('./fonts/sfuitext-medium-webfont.woff') format('woff'),
+  url('./fonts/sfuitext-medium-webfont.ttf') format('truetype'),
+  url('./fonts/sfuitext-medium-webfont.svg#sf_ui__textmedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
 }
 
 @font-face {

@@ -29,3 +29,27 @@
   -moz-justify-content:$value;
   -ms-justify-content:$value;
 }
+
+@mixin animation($name,$time){
+  -webkit-animation:$name $time;
+  -o-animation:$name $time;
+  animation:$name $time;
+  -moz-animation:$name $time;
+  -ms-animation:$name $time;
+}
+
+@mixin translate-x($percent){
+  -webkit-transform: translateX($percent);
+  -moz-transform: translateX($percent);
+  -ms-transform: translateX($percent);
+  -o-transform: translateX($percent);
+  transform: translateX($percent);
+}
+
+@mixin translate-y($percent){
+  -webkit-transform: translateY($percent);
+  -moz-transform: translateY($percent);
+  -ms-transform: translateY($percent);
+  -o-transform: translateY($percent);
+  transform: translateY($percent);
+}

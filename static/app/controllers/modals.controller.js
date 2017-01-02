@@ -12,6 +12,7 @@
         vm.project = modalsService.projectCreate;
         vm.new_task = modalsService.taskCreate;
         vm.task = modalsService.taskViewing;
+        vm.close = modalsService.closeModal;
 
     }
 })();

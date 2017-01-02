@@ -1,0 +1,125 @@
+.modal{
+  position: fixed;
+  top:0;
+  left:0;
+  right: 0;
+  bottom:0;
+  z-index:9990;
+  background: rgba(0,0,0,0.2);
+
+  &__content{
+    position:absolute;
+    width: 450px;
+    height: 100%;
+    background: rgb(41,44,51);
+    right: 0;
+    @include translate-x(0%);
+    @include animation(open-modal,0.5s);
+  }
+
+  .close{
+    position: absolute;
+    color:rgb(255,255,255);
+    text-align:center;
+    width: 18px;
+    height: 35px;
+    top: 15px;
+    left: 11px;
+    cursor:pointer;
+
+    span{
+      font-size: 20px;
+      float:left;
+    }
+
+    p{
+      float:left;
+      font-size: 8px;
+      text-transform: uppercase;
+      margin: 0 0px -5px 1px;
+      font-family: SFUIText-Semibold;
+      text-align: center;
+      letter-spacing: 0.8px;
+    }
+
+  }
+
+  &__title{
+    float:left;
+    width: 100%;
+    height: 45px;
+    @include flexbox();
+    @include justifyContent(center);
+    @include alignItems(flex-end);
+    font-family: SFUITextMedium;
+
+    p{
+      color:$color-white;
+      font-family: sf_ui__textmedium;
+      font-size: 16px;
+      margin:0;
+      text-align: center;
+    }
+  }
+
+  &__body{
+    float:left;
+    width: 100%;
+    height: auto;
+    margin-top:30px;
+    padding: 0 0 0 70px ;
+    box-sizing: border-box;
+
+
+    input{
+      width: 308px;
+      background: transparent;
+      color: rgb(246,246,246);
+      font-size: 14px;
+      font-family: SFUIText-Regular;
+      padding:5px;
+      box-sizing: border-box;
+      border-top:none;
+      border-right:none;
+      border-left:none;
+      border-bottom: 2px solid rgb(189,189,189);
+    }
+  }
+}
+
+
+@keyframes open-modal {
+  from{
+    @include translate-x(100%);
+  }
+  to{
+    @include translate-x(0%);
+  }
+}
+
+@-webkit-keyframes open-modal {
+  from{
+    @include translate-x(100%);
+  }
+  to{
+    @include translate-x(0%);
+  }
+}
+
+@-ms-keyframes open-modal {
+  from{
+    @include translate-x(100%);
+  }
+  to{
+    @include translate-x(0%);
+  }
+}
+
+@-o-keyframes open-modal {
+  from{
+    @include translate-x(100%);
+  }
+  to{
+    @include translate-x(0%);
+  }
+}

@@ -1,2 +1,14 @@
-<h3>Create project</h3>
-<h3 class="close" esc-key="projectCreate">Close</h3>
+<div class="modal">
+    <div class="modal__content">
+        <div class="close" ng-click="vm.close('projectCreate')" esc-key="projectCreate">
+            <span data-icons8="&#xf105;"></span>
+            <p>esc</p>
+        </div>
+        <div class="modal__title">
+            <p>Create new project</p>
+        </div>
+        <div class="modal__body">
+            <input type="text" placeholder="Project name"/>
+        </div>
+    </div>
+</div>
