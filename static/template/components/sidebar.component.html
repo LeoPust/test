@@ -1,1 +1,13 @@
-<h2>SideBar</h2>
+<div class="profile">
+    <div class="profile__logo">
+        <img src="{{vm.sidebar.profile.image_url}}" alt="">
+    </div>
+    <div class="profile__info">
+        <p>{{vm.sidebar.profile.username}}</p>
+    </div>
+</div>
+<div class="projects">
+    <div class="projects__project" ng-repeat="item in vm.sidebar.projects">
+        <p>{{item.Project.title}}</p>
+    </div>
+</div>

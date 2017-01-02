@@ -1,11 +1,16 @@
 'use strict';
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify');
 
 gulp.task('sass', function () {
-    return gulp.src('./sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
+    return gulp.src([
+        './node_modules/angular-material/angular-material.css',
+        './sass/**/*.scss'
+    ])
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('all.min.css'))
         .pipe(gulp.dest('./static/css'));
 });
 
@@ -30,6 +35,7 @@ gulp.task('js:comp', function() {
         '!./assets/js/vendor/**/*.js'
     ])
         .pipe(concat('all.min.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./static/js'));
 });
 

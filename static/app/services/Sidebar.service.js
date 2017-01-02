@@ -8,12 +8,14 @@
 
     function sideBarService(apiService){
         var profile = {
-            username:"",
-            image_url:""
-        };
+                username:"",
+                image_url:""
+            },
+            projects = [];
 
         var service = {
             profile:profile,
+            projects:projects,
             getProfile:getProfile,
             getProjects:getProjects,
             setProfile:setProfile,
@@ -41,9 +43,12 @@
         }
 
         function setProjects(data){
-            console.log(data);
+            var vm = this;
 
-            vm.projects = data.projects;
+            vm.projects = data.projects.map(function(item,i){
+                item.status = false;
+                return item;
+            });
         }
 
         function setProfile(data){
@@ -55,3 +60,4 @@
         }
     }
 })();
+

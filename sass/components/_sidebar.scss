@@ -1,0 +1,54 @@
+.container__sidebar{
+  float:left;
+  width: 308px;
+  height: 100%;
+  background: $color-dark-blue;
+  color:      $color-white;
+
+  .profile{
+    width: 254px;
+    height: 90px;
+    margin:0 27px;
+    box-sizing: border-box;
+    @include flexbox();
+    @include alignItems(center);
+
+    &__logo{
+      float:left;
+      width: 54px;
+      height: 54px;
+      margin-left:19px;
+      border-radius: 100px;
+      border:2px solid rgb(255,255,255);
+      @include flexbox();
+      @include justifyContent(center);
+      @include alignItems(center);
+
+      img{
+        width: 45px;
+        height: 45px;
+        border-radius: 100px;
+      }
+    }
+
+    &__info{
+      height: 54px;
+      margin-left:18px;
+      line-height: 54px;
+      float:left;
+
+      p{
+        color:$color-white;
+        font-family:SFUIText-Semibold;
+        font-size:14px;
+        margin:0 0 2px 0;
+      }
+    }
+  }
+
+  .projects{
+    float:left;
+    width: 254px;
+    margin:0 27px;
+  }
+}
