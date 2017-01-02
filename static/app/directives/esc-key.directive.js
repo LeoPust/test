@@ -18,7 +18,6 @@
                if(event.which == 27){
                    scope.$apply(function(){
                         modalsService.closeModal(attrs.escKey);
-                        $state.go("home");
                    });
                    event.preventDefault();
                }

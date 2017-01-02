@@ -4,7 +4,14 @@
         .module("App")
         .controller("ModalsController",ModalsController);
 
-    function ModalsController(){
+    ModalsController.$inject = ['modalsService'];
+
+    function ModalsController(modalsService){
+        var vm = this;
+
+        vm.project = modalsService.projectCreate;
+        vm.new_task = modalsService.taskCreate;
+        vm.task = modalsService.taskViewing;
 
     }
 })();
