@@ -30,7 +30,7 @@
 
         function closeModal(section){
             var vm = this;
-            if(section){
+            if([section] in vm){
                 vm[section].toDefault();
             }
             else{
