@@ -8,4 +8,21 @@
   overflow-x: hidden;
   overflow-y: auto;
 
+
+  .create-task{
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    bottom: 27px;
+    right: 27px;
+
+    p{
+      font-size: 30px;
+      margin:0;
+    }
+
+    button{
+      background: rgb(107,107,153)!important;
+    }
+  }
 }

@@ -23,6 +23,7 @@
                 controllerAs:"vm"
             })
             .state("home.create-task",{
+                url:"task/create",
                 templateUrl:"template/modals/task-create.modal.html",
                 controller:"ModalsController",
                 controllerAs:"vm"

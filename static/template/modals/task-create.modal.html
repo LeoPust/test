@@ -1,3 +1,20 @@
 <div class="modal">
-    <div class="modal__content"></div>
+    <div class="modal__content">
+        <div class="close" ng-click="vm.service.closeModal('taskCreate')" esc-key="projectCreate">
+            <span data-icons8="&#xf105;"></span>
+            <p>esc</p>
+        </div>
+        <div class="modal__title">
+            <p>Create new task</p>
+        </div>
+        <div class="modal__body">
+            <input type="text" placeholder="Task name" />
+            <input type="text" placeholder="Description" />
+        </div>
+        <div class="save">
+            <md-button class="md-fab md-primary md-hue-2" aria-label="Profile">
+                <p class="icons8-checkmark"></p>
+            </md-button>
+        </div>
+    </div>
 </div>

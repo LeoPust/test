@@ -5,8 +5,10 @@ let express         = require("express"),
     logger          = require("morgan"),
     bodyParser      = require("body-parser"),
     cookieParser    = require("cookie-parser"),
-    moment          = require('moment');
+    moment          = require('moment'),
+    compression     = require('compression');
 
+app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
