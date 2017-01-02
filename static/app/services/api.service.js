@@ -15,6 +15,7 @@
             signUp:signUp,
             getProjects:getProjects,
             loadTask:loadTask,
+            addProject:addProject,
             resultSucceed:resultSucceed,
             XHRFailed:XHRFailed
         };
@@ -85,6 +86,27 @@
                     paging_offset:paging_offset
                 },
                 paramSerializer: '$httpParamSerializerJQLike'
+            })
+                .then(vm.resultSucceed)
+                .catch(vm.XHRFailed);
+        }
+
+        function addProject(name){
+            var vm = this,
+                url = URLs.IP + URLs.PORT + URLs.PATH + '/projects/project';
+
+            return $http({
+                url:url,
+                method:"POST",
+                data:{
+                    session:$cookies.get("session"),
+                    Project:{
+                        title:name
+                    }
+                },
+                headers:{
+                    "Content-Type":"application/json"
+                }
             })
                 .then(vm.resultSucceed)
                 .catch(vm.XHRFailed);

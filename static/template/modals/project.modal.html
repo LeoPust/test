@@ -8,7 +8,12 @@
             <p>Create new project</p>
         </div>
         <div class="modal__body">
-            <input type="text" placeholder="Project name"/>
+            <input type="text" placeholder="Project name" ng-model="vm.project.name"/>
+        </div>
+        <div class="save">
+            <md-button class="md-fab md-primary md-hue-2" aria-label="Profile" ng-click="vm.project.addProject()">
+                <p class="icons8-checkmark"></p>
+            </md-button>
         </div>
     </div>
 </div>

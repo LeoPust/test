@@ -20,7 +20,8 @@
             getProjects:getProjects,
             setProfile:setProfile,
             setProjects:setProjects,
-            loadProjectId:loadProjectId
+            loadProjectId:loadProjectId,
+            addToList:addToList
         };
 
         return service;
@@ -67,6 +68,18 @@
             }
             vm.projects[index].status = true;
             return vm.projects[index].Project.id;
+        }
+
+        function addToList(name,id){
+            var vm = this;
+            vm.projects.push({
+                Project:{
+                    id:id,
+                    title:name,
+                    task_count:0
+                },
+                status:false
+            });
         }
     }
 })();
