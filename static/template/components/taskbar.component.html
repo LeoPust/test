@@ -1,1 +1,11 @@
-<h2>TaskBar</h2>
+<div class="taskbar__toolbar"></div>
+<div class="taskbar__task-list">
+    <div class="group-tasks" ng-repeat="item in vm.tasks.groups_tasks | orderBy:'value':true">
+        <div class="group-tasks__title">
+            {{item.value | dateFormat}}
+        </div>
+        <div class="group-tasks__tasks">
+            <div class="task" ng-repeat="task in item.tasks"></div>
+        </div>
+    </div>
+</div>

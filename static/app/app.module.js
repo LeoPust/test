@@ -10,6 +10,7 @@
             'ngAria',
             'ui.router',
             'ngCookies',
-            'ngMaterial'
+            'ngMaterial',
+            'angularMoment'
         ]);
 })();

@@ -12,6 +12,7 @@
         vm.service = homeService;
         vm.sidebar = sideBarService;
         vm.task = taskBarService;
+        vm.loadTasks = loadTasks;
 
         activate();
 
@@ -23,6 +24,12 @@
                 sideBarService.getProfile();
                 sideBarService.getProjects();
             }
+        }
+
+        function loadTasks(index){
+            var id = vm.sidebar.loadProjectId(index);
+
+            vm.task.loadTask(id);
         }
     }
 })();

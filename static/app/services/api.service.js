@@ -14,6 +14,7 @@
             checkSession:checkSession,
             signUp:signUp,
             getProjects:getProjects,
+            loadTask:loadTask,
             resultSucceed:resultSucceed,
             XHRFailed:XHRFailed
         };
@@ -66,6 +67,25 @@
                     params:{session:$cookies.get("session")},
                     paramSerializer: '$httpParamSerializerJQLike'
                 })
+                .then(vm.resultSucceed)
+                .catch(vm.XHRFailed);
+        }
+
+        function loadTask(id,paging_size,paging_offset){
+            var vm = this,
+                url = URLs.IP + URLs.PORT + URLs.PATH + '/tasks';
+
+            return $http({
+                url:url,
+                method:"GET",
+                params:{
+                    session:$cookies.get("session"),
+                    project_id:id,
+                    paging_size:paging_size,
+                    paging_offset:paging_offset
+                },
+                paramSerializer: '$httpParamSerializerJQLike'
+            })
                 .then(vm.resultSucceed)
                 .catch(vm.XHRFailed);
         }

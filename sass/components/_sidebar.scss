@@ -90,6 +90,10 @@
       cursor:pointer;
       border-radius: 5px;
 
+      &.active{
+        background:rgb(107,107,153)!important;
+      }
+
       &:hover{
         background:rgb(107,107,153);
       }

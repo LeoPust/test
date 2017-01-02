@@ -19,7 +19,8 @@
             getProfile:getProfile,
             getProjects:getProjects,
             setProfile:setProfile,
-            setProjects:setProjects
+            setProjects:setProjects,
+            loadProjectId:loadProjectId
         };
 
         return service;
@@ -57,6 +58,15 @@
             console.log(data);
             vm.profile.username = data.Account.username;
             vm.profile.image_url = data.Account.image_url;
+        }
+        
+        function loadProjectId(index){
+            var vm = this;
+            for(var i in vm.projects){
+                vm.projects[i].status = false;
+            }
+            vm.projects[index].status = true;
+            return vm.projects[index].Project.id;
         }
     }
 })();

@@ -11,7 +11,11 @@
         <p>projects</p>
         <p class="icons8-plus" ui-sref="home.create-project"></p>
     </div>
-    <div class="projects__project" ng-repeat="item in vm.sidebar.projects">
+    <div
+            class="projects__project"
+            ng-repeat="item in vm.sidebar.projects track by $index"
+            ng-click="vm.loadTasks($index)"
+            ng-class="item.status ? 'active' : ''">
         <p>{{item.Project.title}}</p>
         <p>{{item.Project.task_count}}</p>
     </div>
