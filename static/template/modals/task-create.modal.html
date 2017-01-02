@@ -8,11 +8,11 @@
             <p>Create new task</p>
         </div>
         <div class="modal__body">
-            <input type="text" placeholder="Task name" />
-            <input type="text" placeholder="Description" />
+            <input type="text" placeholder="Task name" ng-model="vm.new_task.name" />
+            <input type="text" placeholder="Description" ng-model="vm.new_task.description" />
         </div>
         <div class="save">
-            <md-button class="md-fab md-primary md-hue-2" aria-label="Profile">
+            <md-button class="md-fab md-primary md-hue-2" aria-label="Profile" ng-click="vm.new_task.addTask()">
                 <p class="icons8-checkmark"></p>
             </md-button>
         </div>

@@ -21,7 +21,8 @@
             setProfile:setProfile,
             setProjects:setProjects,
             loadProjectId:loadProjectId,
-            addToList:addToList
+            addToList:addToList,
+            getActiveProject:getActiveProject
         };
 
         return service;
@@ -80,6 +81,16 @@
                 },
                 status:false
             });
+        }
+
+        function getActiveProject(){
+            var vm = this;
+            for(var i in vm.projects){
+                if(vm.projects[i].status){
+                    return vm.projects[i].Project.id;
+                }
+            }
+            return null;
         }
     }
 })();

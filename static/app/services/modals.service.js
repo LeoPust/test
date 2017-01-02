@@ -13,6 +13,9 @@
                 toDefault:toDefault
             },
             taskCreate = {
+                name:"",
+                description:"",
+                addTask:addTask,
                 toDefault:toDefault
             },
             taskViewing = {
@@ -50,6 +53,18 @@
                     vm.toDefault();
                     $state.go("home");
                 });
+        }
+
+        function addTask(){
+            var vm = this,
+                id = sideBarService.getActiveProject();
+            if(!vm.name || !id)return;
+            
+            apiService.addTask(id,vm.name,vm.description)
+                .then(function(data){
+                    
+                });
+
         }
 
         function toDefault(){

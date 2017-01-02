@@ -16,6 +16,7 @@
             getProjects:getProjects,
             loadTask:loadTask,
             addProject:addProject,
+            addTask:addTask,
             resultSucceed:resultSucceed,
             XHRFailed:XHRFailed
         };
@@ -103,9 +104,28 @@
                     Project:{
                         title:name
                     }
-                },
-                headers:{
-                    "Content-Type":"application/json"
+                }
+            })
+                .then(vm.resultSucceed)
+                .catch(vm.XHRFailed);
+        }
+
+        function addTask(id,name,description){
+            var vm = this,
+                url = URLs.IP + URLs.PORT + URLs.PATH + '/tasks/task';
+
+            return $http({
+                url:url,
+                method:"POST",
+                data:{
+                    session:$cookies.get("session"),
+                    Project:{
+                        id:id
+                    },
+                    Task:{
+                        title:name,
+                        description:description
+                    }
                 }
             })
                 .then(vm.resultSucceed)
