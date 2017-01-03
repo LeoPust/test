@@ -4,9 +4,9 @@
         .module("App")
         .service("modalsService",modalsService);
 
-    modalsService.$inject = ['$state','sideBarService','apiService'];
+    modalsService.$inject = ['$state','sideBarService','taskBarService','apiService','moment'];
 
-    function modalsService($state,sideBarService,apiService){
+    function modalsService($state,sideBarService,taskBarService,apiService,moment){
         var projectCreate = {
                 name:"",
                 addProject:addProject,
@@ -62,7 +62,13 @@
             
             apiService.addTask(id,vm.name,vm.description)
                 .then(function(data){
-                    
+                    var item = {
+                        id:data.Task.id,
+                        title:vm.name,
+                        description:vm.description,
+                        created_at:moment().format("YYYY-MM-DD")
+                    };
+                    taskBarService.addTask(item);
                 });
 
         }

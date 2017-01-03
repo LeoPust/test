@@ -17,9 +17,24 @@
             paging_size:paging_size,
             paging_offset:paging_offset,
             total_count:total_count,
-            loadTask:loadTask
+            loadTask:loadTask,
+            addTask:addTask
         };
         return service;
+
+        function addTask(task){
+            var vm = this;
+            for(var i in vm.groups_tasks){
+                if(vm.groups_tasks[i].value == task.created_at){
+                    vm.groups_tasks[i].tasks.push(task);
+                }else{
+                    vm.groups_tasks.push({
+                        tasks:[task],
+                        value:task.created_at
+                    })
+                }
+            }
+        }
 
         function loadTask(id){
             var vm = this,

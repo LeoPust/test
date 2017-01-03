@@ -137,7 +137,7 @@
         }
 
         function XHRFailed(error) {
-            $log.error('XHR Failed! ' + error.data);
+            $log.error('XHR Failed! ' + error);
         }
     }
 
