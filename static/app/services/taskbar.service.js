@@ -25,7 +25,7 @@
         function addTask(task){
             var vm = this;
             for(var i in vm.groups_tasks){
-                if(vm.groups_tasks[i].value == task.created_at){
+                if(vm.groups_tasks[i].value == moment(task.created_at).format("DD.MM.YYYY")){
                     vm.groups_tasks[i].tasks.push(task);
                 }else{
                     vm.groups_tasks.push({
@@ -45,7 +45,10 @@
                 .then(function(data){
                     vm.total_count = data.total_count;
                     for(var i in data.tasks){
-                        var date = data.tasks[i].created_at;
+                        console.log(data.tasks[i].Task.created_at);
+
+                        var date = moment(data.tasks[i].Task.created_at,"YYYY-MM-DD hh:mm:ss").format("DD.MM.YYYY");
+                        console.log(date);
                         if([date] in _groups_tasks){
                             _groups_tasks[date]['tasks'].push(data.tasks[i]);
                         }else{

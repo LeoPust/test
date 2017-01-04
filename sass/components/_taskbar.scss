@@ -12,18 +12,46 @@
     float:left;
     width: 100%;
     height:45px;
+    position: absolute;
   }
 
   .taskbar__task-list{
     float:left;
-    padding:0 207px;
+    padding:45px 207px 0 207px;
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
 
     .group-tasks{
       float:left;
       width:100%;
       height: auto;
+      margin-bottom: 8px;
+
+      &__title{
+        float:left;
+        color:rgb(179,187,203);
+        font-size: 14px;
+        font-family: SFUIText-Semibold;
+        margin:0 0 8px 0;
+      }
+
+      &__tasks{
+        float:left;
+        width: 100%;
+        border-radius: 10px;
+        border:1px solid rgb(239,239,239);
+        box-shadow: 0 0 10px rgba(0,0,0,.16);
+
+        .task{
+          float:left;
+          width: 100%;
+          height: 55px;
+          color:rgb(33,33,33);
+          font-size: 14px;
+          font-family: SFUIText-Semibold;
+        }
+      }
     }
   }
 

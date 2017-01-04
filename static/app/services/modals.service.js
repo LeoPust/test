@@ -68,7 +68,8 @@
                         description:vm.description,
                         created_at:moment().format("YYYY-MM-DD")
                     };
-                    taskBarService.addTask(item);
+                    taskBarService.addTask({Task:item});
+                    $state.go("home");
                 });
 
         }
