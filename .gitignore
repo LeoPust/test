@@ -1,2 +1,4 @@
 .idea/
 node_modules/
+static/css/all.min.css
+static/js/all.min.js

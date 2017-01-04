@@ -60,15 +60,17 @@
                 id = sideBarService.getActiveProject();
             if(!vm.name || !id)return;
             
-            apiService.addTask(id,vm.name,vm.description)
+            return apiService.addTask(id,vm.name,vm.description)
                 .then(function(data){
-                    var item = {
+                    var d = moment(new Date()).format("DD.MM.YYYY"),
+                        item = {
                         id:data.Task.id,
                         title:vm.name,
                         description:vm.description,
-                        created_at:moment().format("YYYY-MM-DD")
+                        created_at:d
                     };
                     taskBarService.addTask({Task:item});
+                    vm.toDefault();
                     $state.go("home");
                 });
 
