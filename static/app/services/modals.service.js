@@ -70,6 +70,7 @@
                         created_at:d
                     };
                     taskBarService.addTask({Task:item});
+                    sideBarService.taskIncrement();
                     vm.toDefault();
                     $state.go("home");
                 });

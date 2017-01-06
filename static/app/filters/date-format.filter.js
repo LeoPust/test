@@ -16,7 +16,8 @@
                     return "Tomorrow";
                     break;
                 default:
-                    return moment(new Date(item)).format("dddd") + " (" + moment(new Date(item)).format("DD.MM.YYYY") +")";
+                    var _date = new moment(item,"DD.MM.YYYY");
+                    return _date.format("dddd") + " (" + _date.format("DD.MM.YYYY") +")";
                     break;
             }
             return item;

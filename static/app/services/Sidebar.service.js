@@ -22,7 +22,8 @@
             setProjects:setProjects,
             loadProjectId:loadProjectId,
             addToList:addToList,
-            getActiveProject:getActiveProject
+            getActiveProject:getActiveProject,
+            taskIncrement:taskIncrement
         };
 
         return service;
@@ -91,6 +92,15 @@
                 }
             }
             return null;
+        }
+
+        function taskIncrement(){
+            var vm = this;
+            vm.projects.forEach(function(item){
+                if(item.status){
+                    item.Project.task_count++;
+                }
+            })
         }
     }
 })();
