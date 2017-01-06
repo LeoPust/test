@@ -6,7 +6,13 @@
         </div>
         <div class="group-tasks__tasks">
             <div class="task" ng-repeat="task in item.tasks">
-                {{task.Task.title}}
+                <div class="task__close-btn">
+                    <div></div>
+                </div>
+                <div class="task__title">
+                    <p>{{task.Task.title}}</p>
+                </div>
+                <hr ng-if="item.tasks.length >= 2" />
             </div>
         </div>
     </div>

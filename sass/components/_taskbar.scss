@@ -47,9 +47,59 @@
           float:left;
           width: 100%;
           height: 55px;
-          color:rgb(33,33,33);
-          font-size: 14px;
-          font-family: SFUIText-Semibold;
+          position: relative;
+          cursor: pointer;
+
+          &:last-child hr{
+            opacity: 0!important;
+          }
+
+          hr{
+            position: absolute;
+            bottom:0;
+            border:0;
+            left:55px;
+            right: 55px;
+            height: 1px;
+            background: rgb(240,240,240);
+            margin:0;
+          }
+
+          &__close-btn{
+            float:left;
+            width: 77px;
+            height: 100%;
+            @include flexbox();
+            @include alignContent(center);
+            @include alignItems(center);
+            @include justifyContent(center);
+
+            div{
+              width: 18px;
+              height: 18px;
+              border-radius: 50px;
+              border:3px solid rgb(189,189,189);
+
+              &:hover{
+                background: rgb(189,189,189);
+              }
+            }
+          }
+
+          &__title{
+            float:left;
+            width: auto;
+            height: 100%;
+            margin-left:15px;
+
+            p{
+              color:rgb(33,33,33);
+              font-size: 14px;
+              font-family: SFUIText-Semibold;
+              line-height: 57px;
+              margin: 0;
+            }
+          }
         }
       }
     }
