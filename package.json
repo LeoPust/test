@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "postinstall":"gulp js::pump::app && gulp sass",
+    "postinstall": "gulp js::pump::app && gulp sass",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "angular-aria": "^1.6.1",
     "angular-cookies": "^1.6.1",
     "angular-material": "^1.1.1",
+    "angular-material-preloader": "^1.0.0",
     "angular-moment": "^1.0.1",
     "angular-resource": "^1.6.1",
     "angular-route": "^1.6.1",

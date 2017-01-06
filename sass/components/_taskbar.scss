@@ -26,14 +26,14 @@
       float:left;
       width:100%;
       height: auto;
-      margin-bottom: 8px;
+      margin-bottom: 15px;
 
       &__title{
         float:left;
         color:rgb(179,187,203);
         font-size: 14px;
         font-family: SFUIText-Semibold;
-        margin:0 0 8px 0;
+        margin:0 0 8px 8px;
       }
 
       &__tasks{
@@ -90,7 +90,21 @@
             float:left;
             width: auto;
             height: 100%;
-            margin-left:15px;
+            padding-left:15px;
+            box-sizing: border-box;
+            position: relative;
+
+            &::before{
+              position: absolute;
+              background: rgb(240,240,240);
+              width: 1px;
+              height: 36px;
+              left:0;
+              top:0;
+              bottom: 0;
+              margin:auto;
+              content: "";
+            }
 
             p{
               color:rgb(33,33,33);

@@ -4,11 +4,12 @@
         .module("App")
         .controller("HomeController",HomeController);
 
-    HomeController.$inject = ['$cookies','homeService','sideBarService','taskBarService'];
+    HomeController.$inject = ['$cookies','$timeout','homeService','sideBarService','taskBarService','apiService'];
 
-    function HomeController($cookies,homeService,sideBarService,taskBarService){
+    function HomeController($cookies,$timeout,homeService,sideBarService,taskBarService,apiService){
         var vm = this;
 
+        vm.status = false;
         vm.service = homeService;
         vm.sidebar = sideBarService;
         vm.task = taskBarService;
@@ -19,10 +20,26 @@
         function activate(){
             var session = $cookies.get("session");
 
-            console.log(session);
             if(session){
-                sideBarService.getProfile();
-                sideBarService.getProjects();
+                apiService.checkSession()
+                    .then(function(data){
+                        if(data.session)$cookies.put("session",data.session);
+                        sideBarService.getProfile();
+                        sideBarService.getProjects();
+                        $timeout(function(){
+                            vm.status = true;
+                        },500);
+                    });
+            }else{
+                apiService.signUp()
+                    .then(function(data){
+                        if(data.session)$cookies.put("session",data.session);
+                        sideBarService.getProfile();
+                        sideBarService.getProjects();
+                        $timeout(function(){
+                            vm.status = true;
+                        },500);
+                    });
             }
         }
 
