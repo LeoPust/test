@@ -1,4 +1,4 @@
-<div class="container__preloader" preloader-status>
+<div class="container__preloader" ng-if="!vm.status">
     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
 <div class="container__sidebar" ng-include="vm.service.template.sideBar"></div>
