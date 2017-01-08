@@ -1,13 +1,13 @@
 <div class="taskbar__toolbar"></div>
-<div class="taskbar__task-list">
-    <div class="group-tasks" ng-repeat="item in vm.task.groups_tasks | orderBy:'value':true">
+<div class="taskbar__task-list" scroll-task-load>
+    <div class="group-tasks" ng-repeat="item in vm.task.groups_tasks | orderBy:'value':true" ng-if="item.tasks.length">
         <div class="group-tasks__title">
             {{item.value | dateFormat}}
         </div>
         <div class="group-tasks__tasks">
             <div class="task" ng-repeat="task in item.tasks">
                 <div class="task__close-btn">
-                    <div></div>
+                    <div ng-click="vm.compliteTask(task.Task.id)"></div>
                 </div>
                 <div class="task__title">
                     <p>{{task.Task.title}}</p>

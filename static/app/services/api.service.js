@@ -17,6 +17,7 @@
             loadTask:loadTask,
             addProject:addProject,
             addTask:addTask,
+            comliteTask:comliteTask,
             resultSucceed:resultSucceed,
             XHRFailed:XHRFailed
         };
@@ -125,6 +126,24 @@
                     Task:{
                         title:name,
                         description:description
+                    }
+                }
+            })
+                .then(vm.resultSucceed)
+                .catch(vm.XHRFailed);
+        }
+
+        function comliteTask(id){
+            var vm = this,
+                url = URLs.IP + URLs.PORT + URLs.PATH + '/tasks/task/complite';
+
+            return $http({
+                url:url,
+                method:"POST",
+                data:{
+                    session:$cookies.get("session"),
+                    Task:{
+                        id:id
                     }
                 }
             })

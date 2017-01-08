@@ -23,7 +23,8 @@
             loadProjectId:loadProjectId,
             addToList:addToList,
             getActiveProject:getActiveProject,
-            taskIncrement:taskIncrement
+            taskIncrement:taskIncrement,
+            taskDecrement:taskDecrement
         };
 
         return service;
@@ -99,6 +100,15 @@
             vm.projects.forEach(function(item){
                 if(item.status){
                     item.Project.task_count++;
+                }
+            })
+        }
+
+        function taskDecrement(){
+            var vm = this;
+            vm.projects.forEach(function(item){
+                if(item.status){
+                    item.Project.task_count--;
                 }
             })
         }

@@ -14,6 +14,7 @@
         vm.sidebar = sideBarService;
         vm.task = taskBarService;
         vm.loadTasks = loadTasks;
+        vm.compliteTask = compliteTask;
 
         activate();
 
@@ -43,6 +44,11 @@
             }
         }
 
+        function compliteTask(id){
+            vm.task.compliteTask(id);
+            vm.sidebar.taskDecrement();
+        }
+        
         function loadTasks(index){
             var id = vm.sidebar.loadProjectId(index);
 

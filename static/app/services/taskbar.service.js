@@ -8,7 +8,7 @@
 
     function taskBarService(apiService,moment){
         var groups_tasks = [],
-            paging_size = 10,
+            paging_size = 50,
             paging_offset = 0,
             total_count = 0;
 
@@ -17,6 +17,7 @@
             paging_size:paging_size,
             paging_offset:paging_offset,
             total_count:total_count,
+            compliteTask:compliteTask,
             loadTask:loadTask,
             addTask:addTask
         };
@@ -60,6 +61,24 @@
                     vm.groups_tasks = Object.keys(_groups_tasks).map(function(key){
                         return _groups_tasks[key];
                     });
+                });
+        }
+        
+        function compliteTask(id){
+            var vm = this;
+
+            apiService.comliteTask(id)
+                .then(function () {
+
+                    for(var i in vm.groups_tasks){
+                        var _tasks = [];
+                        for(var j in vm.groups_tasks[i].tasks){
+                            vm.groups_tasks[i].tasks[j].Task.id != id ?
+                                _tasks.push(vm.groups_tasks[i].tasks[j])
+                            :null;
+                        }
+                        vm.groups_tasks[i].tasks = _tasks;
+                    }
                 });
         }
     }
