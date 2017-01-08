@@ -59,7 +59,6 @@
         function setProfile(data){
             var vm = this;
 
-            console.log(data);
             vm.profile.username = data.Account.username;
             vm.profile.image_url = data.Account.image_url;
         }

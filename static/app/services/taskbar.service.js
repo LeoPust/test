@@ -45,7 +45,6 @@
             apiService.loadTask(id,vm.paging_size,vm.paging_offset)
                 .then(function(data){
                     vm.total_count = data.total_count;
-                    console.log(data.tasks);
                     for(var i in data.tasks){
                         var date = moment(data.tasks[i].Task.created_at,"YYYY-MM-DD hh:mm:ss").format("DD.MM.YYYY");
                         if([date] in _groups_tasks){
