@@ -4,9 +4,9 @@
         .module("App")
         .controller("ModalsController",ModalsController);
 
-    ModalsController.$inject = ['modalsService'];
+    ModalsController.$inject = ['$stateParams','modalsService'];
 
-    function ModalsController(modalsService){
+    function ModalsController($stateParams,modalsService){
         var vm = this;
 
         vm.project = modalsService.projectCreate;
@@ -14,5 +14,12 @@
         vm.task = modalsService.taskViewing;
         vm.service = modalsService;
 
+        activate();
+
+        function activate(){
+            if($stateParams.id){
+                vm.task.loadTask();
+            }
+        }
     }
 })();

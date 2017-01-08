@@ -19,6 +19,9 @@
                 toDefault:toDefault
             },
             taskViewing = {
+                name:"",
+                description:"",
+                loadTask:loadTask,
                 toDefault:toDefault
             };
 
@@ -75,6 +78,14 @@
                     $state.go("home");
                 });
 
+        }
+
+        function loadTask(id) {
+            var vm = this;
+            apiService.loadInfoTask(id)
+                .then(function(data){
+
+                });
         }
 
         function toDefault(){

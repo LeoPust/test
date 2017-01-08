@@ -18,6 +18,7 @@
             addProject:addProject,
             addTask:addTask,
             comliteTask:comliteTask,
+            loadInfoTask:loadInfoTask,
             resultSucceed:resultSucceed,
             XHRFailed:XHRFailed
         };
@@ -146,6 +147,20 @@
                         id:id
                     }
                 }
+            })
+                .then(vm.resultSucceed)
+                .catch(vm.XHRFailed);
+        }
+
+        function loadInfoTask(id) {
+            var vm = this,
+                url = URLs.IP + URLs.PORT + URLs.PATH + '/tasks/task';
+
+            return $http({
+                url:url,
+                method:"GET",
+                params:{},
+                paramSerializer: '$httpParamSerializerJQLike'
             })
                 .then(vm.resultSucceed)
                 .catch(vm.XHRFailed);

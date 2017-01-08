@@ -28,7 +28,8 @@
                 controller:"ModalsController",
                 controllerAs:"vm"
             })
-            .state("home.create-viewing",{
+            .state("home.task-viewing",{
+                url:"task/:id",
                 templateUrl:"template/modals/task-viewing.modal.html",
                 controller:"ModalsController",
                 controllerAs:"vm"
