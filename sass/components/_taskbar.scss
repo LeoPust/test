@@ -121,12 +121,13 @@
           }
 
           &__title{
-            float:left;
-            width: auto;
             height: 100%;
-            padding-left:15px;
             box-sizing: border-box;
-            position: relative;
+            position: absolute;
+            left:77px;
+            padding-left: 15px;
+            right: 0;
+
 
             &::before{
               position: absolute;

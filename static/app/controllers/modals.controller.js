@@ -18,7 +18,7 @@
 
         function activate(){
             if($stateParams.id){
-                vm.task.loadTask();
+                vm.task.loadTask($stateParams.id);
             }
         }
     }

@@ -159,7 +159,10 @@
             return $http({
                 url:url,
                 method:"GET",
-                params:{},
+                params:{
+                    session:$cookies.get("session"),
+                    task_id:id
+                },
                 paramSerializer: '$httpParamSerializerJQLike'
             })
                 .then(vm.resultSucceed)

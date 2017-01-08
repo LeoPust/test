@@ -19,6 +19,7 @@
                 toDefault:toDefault
             },
             taskViewing = {
+                id:"",
                 name:"",
                 description:"",
                 loadTask:loadTask,
@@ -84,15 +85,22 @@
             var vm = this;
             apiService.loadInfoTask(id)
                 .then(function(data){
-
+                    vm.name = data.Task.title;
+                    vm.description = data.Task.description;
+                    vm.id = data.Task.id;
                 });
         }
 
         function toDefault(){
             var vm = this;
             for(var i in vm){
-                if(typeof(vm[i]) == "string"){
-                    vm[i] = "";
+                switch (typeof(vm[i])){
+                    case "string":
+                        vm[i] = "";
+                        break;
+                    case "number":
+                        vm[i] = null;
+                        break;
                 }
             }
         }

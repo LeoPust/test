@@ -9,7 +9,7 @@
                 <div class="task__close-btn">
                     <div ng-click="vm.compliteTask(task.Task.id)"></div>
                 </div>
-                <div class="task__title">
+                <div class="task__title" ui-sref="home.task-viewing({id: task.Task.id})">
                     <p>{{task.Task.title}}</p>
                 </div>
                 <hr ng-if="item.tasks.length >= 2" />
