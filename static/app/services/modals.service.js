@@ -22,7 +22,14 @@
                 id:"",
                 name:"",
                 description:"",
+                status:false,
+                upd:{
+                    name:"",
+                    description:""
+                },
                 loadTask:loadTask,
+                editStatus:editStatus,
+                saveUpdate:saveUpdate,
                 toDefault:toDefault
             };
 
@@ -83,6 +90,7 @@
 
         function loadTask(id) {
             var vm = this;
+            vm.status = false;
             apiService.loadInfoTask(id)
                 .then(function(data){
                     vm.name = data.Task.title;
@@ -90,6 +98,16 @@
                     vm.id = data.Task.id;
                 });
         }
+
+        function editStatus(){
+            var vm = this;
+
+            vm.upd.name = vm.name;
+            vm.upd.description = vm.description;
+            vm.status = true;
+        }
+
+        function saveUpdate(){}
 
         function toDefault(){
             var vm = this;

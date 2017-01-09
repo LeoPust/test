@@ -4,9 +4,24 @@
             <span data-icons8="&#xf105;"></span>
             <p>esc</p>
         </div>
-        <div class="modal__title">
-            <p>{{vm.task.name}}</p>
+        <div class="edit" ng-click="vm.task.editStatus()">
+            <span class="icons8-edit"></span>
         </div>
-        <div class="modal__body"></div>
+        <div class="delete">
+            <span class="icons8-delete"></span>
+        </div>
+        <div class="modal__title">
+            <p ng-if="!vm.task.status">{{vm.task.name}}</p>
+            <input type="text" ng-if="vm.task.status" ng-model="vm.task.upd.name"/>
+        </div>
+        <div class="modal__body">
+            <p  class="text" ng-if="!vm.task.status">{{vm.task.description}}</p>
+            <input type="text" ng-if="vm.task.status" ng-model="vm.task.upd.description"/>
+        </div>
+        <div class="save">
+            <md-button class="md-fab md-primary md-hue-2" ng-if="vm.task.status" aria-label="Profile" ng-click="vm.task.saveUpdate()">
+                <p class="icons8-checkmark"></p>
+            </md-button>
+        </div>
     </div>
 </div>

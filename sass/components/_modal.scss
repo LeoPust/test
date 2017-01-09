@@ -17,6 +17,26 @@
     @include animation(open-modal,0.5s);
   }
 
+  .edit{
+    position: absolute;
+    top:28px;
+    right: 60px;
+    width: 14px;
+    height: 17px;
+    color:rgb(81,85,94);
+    cursor:pointer;
+  }
+
+  .delete{
+    position: absolute;
+    top:28px;
+    right: 29px;
+    width: 14px;
+    height: 17px;
+    color:rgb(81,85,94);
+    cursor:pointer;
+  }
+
   .close{
     position: absolute;
     color:rgb(255,255,255);
@@ -60,6 +80,20 @@
       margin:0;
       text-align: center;
     }
+
+    input{
+      width: 250px;
+      background: transparent;
+      color: rgb(246,246,246);
+      font-size: 14px;
+      font-family: SFUIText-Regular;
+      padding:5px;
+      box-sizing: border-box;
+      border-top:none;
+      border-right:none;
+      border-left:none;
+      border-bottom: 2px solid rgb(189,189,189);
+    }
   }
 
   &__body{
@@ -70,6 +104,13 @@
     padding: 0 0 0 70px ;
     box-sizing: border-box;
 
+
+    p.text{
+      width: 320px;
+      font-size:11px;
+      color:rgb(219,219,219);
+      font-family: SFUIText-Regular;
+    }
 
     input{
       width: 308px;

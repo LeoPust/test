@@ -17,10 +17,19 @@ app.use(express.static("static"));
 app.use("/static", express.static("static"));
 app.use("/node_modules", express.static("node_modules"));
 
-app.get("*",(req,res) => {
+app.get([
+    "/",
+    "/project/create",
+    "/task/create",
+    "task/:id"
+],(req,res) => {
    res.sendFile(__dirname + "/static/template/index.html");
+});
+
+app.all("*",(req,res) => {
+   res.sendStatus(404);
 });
 
 app.listen(9000, () => {
     console.log("server start!");
-})
+});
