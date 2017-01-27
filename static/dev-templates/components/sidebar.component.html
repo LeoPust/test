@@ -1,0 +1,22 @@
+<div class="profile">
+    <div class="profile__logo">
+        <img src="{{vm.sidebar.profile.image_url}}" alt="">
+    </div>
+    <div class="profile__info">
+        <p>{{vm.sidebar.profile.username}}</p>
+    </div>
+</div>
+<div class="projects">
+    <div class="projects__title">
+        <p>projects</p>
+        <p class="icons8-plus" ui-sref="home.create-project"></p>
+    </div>
+    <div
+            class="projects__project"
+            ng-repeat="item in vm.sidebar.projects track by $index"
+            ng-click="vm.loadTasks($index)"
+            ng-class="item.status ? 'active' : ''">
+        <p>{{item.Project.title}}</p>
+        <p>{{item.Project.task_count}}</p>
+    </div>
+</div>

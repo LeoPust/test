@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    pump = require('pump');
+    pump = require('pump'),
+    htmlmin = require('gulp-html-minifier');
 
 gulp.task('sass', function () {
     return gulp.src([
@@ -69,4 +70,10 @@ gulp.task('js::app', function() {
 
 gulp.task('js:watch', function () {
     gulp.watch('./static/app/**/*.js', ['js::app']);
+});
+
+gulp.task('html::minify', function() {
+    gulp.src('./static/dev-templates/**/*.html')
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest('./static/template'))
 });
